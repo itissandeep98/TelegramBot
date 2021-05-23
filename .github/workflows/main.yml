@@ -1,0 +1,13 @@
+name: RepoAworkflow
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: send dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: sandy-test/Actions
+          event-type: TelegramBotPush
